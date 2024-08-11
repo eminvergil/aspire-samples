@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations: {}
+  labels:
+    app: instructor-api
+  name: instructor-api
+spec:
+  minReadySeconds: 60
+  replicas: 1
+  selector:
+    matchLabels:
+      app: instructor-api
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: instructor-api
+    spec:
+      containers:
+      - args: []
+        envFrom:
+        - configMapRef:
+            name: instructor-api
+        - secretRef:
+            name: instructor-api
+        image: '{{ .Values.images.instructorapi }}'
+        imagePullPolicy: IfNotPresent
+        name: instructor-api
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8443
+          name: https
+      terminationGracePeriodSeconds: 180

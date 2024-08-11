@@ -1,0 +1,48 @@
+{
+  "projectPath": ".",
+  "outputPath": "./aspirate-output-kustom",
+  "containerImageTags": [
+    "latest"
+  ],
+  "containerBuilder": "docker",
+  "outputFormat": "kustomize",
+  "skipFinalKustomizeGeneration": false,
+  "privateRegistryEmail": "aspir8@aka.ms",
+  "useCustomNamespace": false,
+  "secrets": {
+    "salt": "LVtK49O\u002BkUlSu2Co",
+    "hash": "UNXmU85OL6bVsuXZvrfSsQsUCi7YVTSftcgK7UrdPqQ=",
+    "secrets": {
+      "postgres-password": {
+        "value": "LVtK49O\u002BkUlSu2CoshAx7mOJ658joOoWps7qx0ABdy/7FHa1tyPBb\u002B6NxNYJ/esLTlk="
+      },
+      "eventbus-password": {
+        "value": "LVtK49O\u002BkUlSu2Coo5517Oj/ayKOYsKvZ0mrmHUITw37U36kly2TZOCI3vAhvMADU30="
+      },
+      "redis": {},
+      "postgres": {
+        "POSTGRES_PASSWORD": "LVtK49O\u002BkUlSu2CoshAx7mOJ658joOoWps7qx0ABdy/7FHa1tyPBb\u002B6NxNYJ/esLTlk="
+      },
+      "eventbus": {},
+      "mongo": {},
+      "coursedb": {},
+      "instructordb": {},
+      "studentdb": {},
+      "course-api": {
+        "ConnectionStrings__redis": "LVtK49O\u002BkUlSu2CoY1VP6\u002Bc1TQubkCC9iPtcoEMPfA3BGzjQ0VI=",
+        "ConnectionStrings__coursedb": "LVtK49O\u002BkUlSu2CodxVQKjg6uqyTc/32P5IRb1wFdgPdRWzZyUSdccKAwbhZu6FgKwYkxTz1U81rbw==",
+        "ConnectionStrings__eventbus": "LVtK49O\u002BkUlSu2Coin7O/sA/5nMq\u002BsmcGj9V4lAHaRSIDiGEkw6DapajzNUCxeMhW1gByTPLT9h9R1429SALkIIxnfH4IW/SzW7rFWk="
+      },
+      "instructor-api": {
+        "ConnectionStrings__instructordb": "LVtK49O\u002BkUlSu2CoRiuE9BTAmqrhPDXXjUzh3nkFaxCPUWGQkgyCe9/c/u0Z\u002BKxkKBp1kRz0RdphbAMCmh8wo5Mgivr/eErAhCiqTSm\u002B\u002BvsC8ms5VXMoudku5Isp/GVbthW/KOdmYaYxw\u002BzCsiFQv2l2B1QYMqMsNk7Y",
+        "ConnectionStrings__eventbus": "LVtK49O\u002BkUlSu2Coin7O/sA/5nMq\u002BsmcGj9V4lAHaRSIDiGEkw6DapajzNUCxeMhW1gByTPLT9h9R1429SALkIIxnfH4IW/SzW7rFWk="
+      },
+      "student-api": {
+        "ConnectionStrings__redis": "LVtK49O\u002BkUlSu2CoY1VP6\u002Bc1TQubkCC9iPtcoEMPfA3BGzjQ0VI=",
+        "ConnectionStrings__studentdb": "LVtK49O\u002BkUlSu2CobNY\u002Bg1j7hpVCoP4gsGta23kFaxCPUWGQkgyCe9/c/u0Z\u002BKxkKBp1kRz0RdphbAMCmh8wo5Mgivr/eErAhCiqTSm\u002B\u002BvsC8ms5VXMoudku5Isp/GVbthW/KOdmYaYxw\u002BzCsiFQpXNwF0MDJbMh",
+        "ConnectionStrings__eventbus": "LVtK49O\u002BkUlSu2Coin7O/sA/5nMq\u002BsmcGj9V4lAHaRSIDiGEkw6DapajzNUCxeMhW1gByTPLT9h9R1429SALkIIxnfH4IW/SzW7rFWk="
+      }
+    }
+  },
+  "processAllComponents": true
+}

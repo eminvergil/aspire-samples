@@ -1,0 +1,14 @@
+resources:
+- redis
+- postgres
+- eventbus
+- mongo
+- course-api
+- instructor-api
+- student-api
+- dashboard.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+

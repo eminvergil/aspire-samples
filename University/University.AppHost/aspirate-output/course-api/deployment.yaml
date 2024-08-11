@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: course-api
+  labels:
+    app: course-api
+spec:
+  minReadySeconds: 60
+  replicas: 1
+  selector:
+    matchLabels:
+      app: course-api
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: course-api
+    spec:
+      containers:
+      - name: course-api
+        image: course-api:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 8080
+        - name: https
+          containerPort: 8443
+        envFrom:
+        - configMapRef:
+            name: course-api-env
+        - secretRef:
+            name: course-api-secrets
+      terminationGracePeriodSeconds: 180
