@@ -1,8 +1,0 @@
-images:
-  redis: docker.io/library/redis:7.2
-  postgres: docker.io/library/postgres:16.2
-  eventbus: docker.io/library/rabbitmq:3.13
-  mongo: docker.io/library/mongo:7.0
-  courseapi: course-api:latest
-  instructorapi: instructor-api:latest
-  studentapi: student-api:latest
