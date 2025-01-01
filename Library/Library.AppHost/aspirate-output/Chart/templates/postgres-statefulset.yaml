@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  annotations: {}
+  labels:
+    app: postgres
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: postgres
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - args: []
+        envFrom:
+        - configMapRef:
+            name: postgres
+        image: '{{ .Values.images.postgres }}'
+        imagePullPolicy: Always
+        name: postgres
+        ports:
+        - containerPort: 5432
+          name: tcp
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: library-apphost-c30446f4c5-postgres-data
+      terminationGracePeriodSeconds: 180
+  volumeClaimTemplates:
+  - metadata:
+      name: library-apphost-c30446f4c5-postgres-data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi

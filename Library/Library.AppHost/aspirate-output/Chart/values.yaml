@@ -1,0 +1,5 @@
+images:
+  redis: docker.io/library/redis:7.4
+  postgres: docker.io/library/postgres:17.0
+  libraryapi: localhost:6000/library-api:latest
+  aspiredashboard: mcr.microsoft.com/dotnet/aspire-dashboard:8.0

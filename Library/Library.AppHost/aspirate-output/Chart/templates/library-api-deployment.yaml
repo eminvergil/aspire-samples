@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations: {}
+  labels:
+    app: library-api
+  name: library-api
+spec:
+  minReadySeconds: 60
+  replicas: 1
+  selector:
+    matchLabels:
+      app: library-api
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: library-api
+    spec:
+      containers:
+      - args: []
+        envFrom:
+        - configMapRef:
+            name: library-api
+        image: '{{ .Values.images.libraryapi }}'
+        imagePullPolicy: Always
+        name: library-api
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8443
+          name: https
+      terminationGracePeriodSeconds: 180
