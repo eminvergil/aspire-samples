@@ -7,15 +7,15 @@ public static class ContentExtensions
     {
         var group = app.MapGroup("/api/content");
 
-        app.MapPost("/insert", async Task<Results<Ok<string>, InternalServerError<string>>> (ContentModel item, ElasticsearchClient client) =>
+        app.MapPost("/insert", async Task<Results<Ok<string>, ProblemHttpResult>> (ContentModel item, ElasticsearchClient client) =>
         {
             var response = await client.IndexAsync(item);
             return response.IsValidResponse
                 ? TypedResults.Ok("Document inserted successfully.")
-                : TypedResults.InternalServerError(response.DebugInformation);
+                : TypedResults.Problem(response.DebugInformation);
         });
 
-        app.MapPost("/search", async Task<Results<Ok<IReadOnlyCollection<ContentModel>>, InternalServerError<string>>> (string text, ElasticsearchClient client) =>
+        app.MapPost("/search", async Task<Results<Ok<IReadOnlyCollection<ContentModel>>, ProblemHttpResult>> (string text, ElasticsearchClient client) =>
         {
             var response = await client.SearchAsync<ContentModel>(s => s
                 .Query(q => q
@@ -28,7 +28,7 @@ public static class ContentExtensions
 
             return response.IsValidResponse
                 ? TypedResults.Ok(response.Documents)
-                : TypedResults.InternalServerError(response.DebugInformation);
+                : TypedResults.Problem(response.DebugInformation);
         });
     }
 }
