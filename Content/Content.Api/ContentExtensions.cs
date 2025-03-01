@@ -33,4 +33,4 @@ public static class ContentExtensions
     }
 }
 
-public record ContentModel(string Id, string Name, string Description);
+public record ContentModel(string Name, string Description);
